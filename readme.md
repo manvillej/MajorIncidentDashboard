@@ -1,7 +1,6 @@
-# ServiceNowJupyterDocker
+# Major Incident Dashboard
  A containerized JupyterLab application for analyzing ServiceNow data 
 
-https://medium.com/@jeffmanville/setting-up-a-data-science-environment-for-servicenow-with-jupyterlab-docker-ebad55b694b8
 
 ## Some Useful Commands
     docker-compose up -d --build
@@ -19,3 +18,4 @@ make sure to set up your .env file before building your docker image
 
 The instance name is in the URL of your instance. for example: https://yourinstancename.service-now.com is "yourinstancename"
 
+To navigate to your JupyterLab instance, go to http://localhost:8888/?token=jupytertoken
