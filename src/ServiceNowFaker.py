@@ -8,6 +8,11 @@ def simulateArrivals(rate, size):
             np.random.exponential(1./rate, size=size)
         ), unit='s')
 
+def simulateDuration(rate, size):
+    '''meant for simulating time spent to complete something, assignment, task completion, etc.'''
+    pass
+
+
 # DONE - get a json major incident as template
 # DONE - get a json incident as template
 
