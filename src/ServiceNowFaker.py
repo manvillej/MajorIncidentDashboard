@@ -1,5 +1,16 @@
+import json
+import random
+
 import pandas as pd
 import numpy as np
+
+
+Applications = []
+OutageTypes = []
+ITWorkers = []
+Directors = []
+Customers = []
+
 
 def simulateArrivals(rate, size):
     '''with a rate of occurence and a number of events to generate, this creates an array of datetime arrivals '''
@@ -12,8 +23,21 @@ def simulateDuration(rate, size):
     '''meant for simulating time spent to complete something, assignment, task completion, etc.'''
     pass
 
+def getMajorIncidentTemplate():
+    with open('./templates/majorIncident.json','r') as fp:
+        majorIncidentTemplate = json.load(fp)
+    return majorIncidentTemplate['records'][0]
 
-# DONE - get a json major incident as template
+def generateMajorIncident():
+    template = getMajorIncidentTemplate()
+    pass
+
+def generateRandomParameterList(choices, size):
+    #mylist = ["geeks", "for", "python"]
+    #print(random.choices(mylist, weights = [10, 1, 1], k = 5))
+    return random.choices(choices, k = size)
+
+
 # DONE - get a json incident as template
 
 # parameterize fields: application, category, assigned to, opened by, etc
