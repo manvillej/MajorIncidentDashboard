@@ -12,12 +12,16 @@ Directors = []
 Customers = []
 
 
-def simulateArrivals(rate, size):
+def simulateArrivals(rates, sizes):
     '''with a rate of occurence and a number of events to generate, this creates an array of datetime arrivals '''
     return pd.Timestamp('today').normalize() - pd.to_timedelta(
         24*60*60*365*np.cumsum(
-            np.random.exponential(1./rate, size=size)
+            np.concatenate([poissonArrivalSample(rate, size) for rate, size in zip(rates, sizes)])
         ), unit='s')
+
+def poissonArrivalSample(rate, size):
+    return np.random.exponential(1./rate, size=size)
+    
 
 def simulateDuration(rate, size):
     '''meant for simulating time spent to complete something, assignment, task completion, etc.'''
