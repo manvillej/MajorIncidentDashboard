@@ -32,14 +32,17 @@ def getMajorIncidentTemplate():
         majorIncidentTemplate = json.load(fp)
     return majorIncidentTemplate['records'][0]
 
-def generateMajorIncident():
-    template = getMajorIncidentTemplate()
-    pass
+def generateMajorIncident(index, createdDate):
+    record = getMajorIncidentTemplate()
+    record['number'] = f'INC004{(numbersLength-(index)+1):04d}'
+    record['sys_created_on'] = createdDate
+    record['opened_at'] = createdDate
+    return record
 
 def generateRandomParameterList(choices, size):
     #mylist = ["geeks", "for", "python"]
     #print(random.choices(mylist, weights = [10, 1, 1], k = 5))
-    return random.choices(choices, k = size)
+    return random.choices(choices, k=size)
 
 
 # DONE - get a json incident as template
