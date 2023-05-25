@@ -32,11 +32,38 @@ def getMajorIncidentTemplate():
         majorIncidentTemplate = json.load(fp)
     return majorIncidentTemplate['records'][0]
 
-def generateMajorIncident(index, createdDate):
+def generateMajorIncident(index, createdDate="", short_description="", category="", assigned_to="", assignment_group=""):
     record = getMajorIncidentTemplate()
+    # record[''] = ''
+    record['impact'] = '1'
+    record['urgency'] = '1'
+    record['priority'] = '1'
+    record['state'] = '6'
+    record['major_incident_state'] = 'accepted'
+    record['active'] = 'true'
+    record['short_description'] = short_description
+    record['category'] = category
+    record['assigned_to'] = assigned_to
+    record['resolved_by'] = resolved_by
+    record['assignment_group'] = assignment_group
+    record['business_impact'] = ''
+    record['description'] = ''
+    record['cause'] = ''
+    record['close_code'] = 'Solved (Permanently)'
+    record['caller_id'] = ''
+    record['close_notes'] = ''
+    record['contact_type'] = ''
+    record['severity'] = ''
+    record['sys_id'] = ''
     record['number'] = f'INC004{(numbersLength-(index)+1):04d}'
+    record['business_duration']=''
+    record['calendar_duration']=''
+    record['resolved_at']=''
+    record['closed_at']=''
+    record['sys_updated_on'] = ''
     record['sys_created_on'] = createdDate
     record['opened_at'] = createdDate
+    business_duration
     return record
 
 def generateRandomParameterList(choices, size):
