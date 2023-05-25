@@ -61,9 +61,8 @@ def generateMajorIncident(index, createdDate="", short_description="", category=
     record['resolved_at']=''
     record['closed_at']=''
     record['sys_updated_on'] = ''
-    record['sys_created_on'] = createdDate
-    record['opened_at'] = createdDate
-    business_duration
+    record['sys_created_on'] = str(createdDate)[:19]
+    record['opened_at'] = str(createdDate)[:19]
     return record
 
 def generateRandomParameterList(choices, size):
