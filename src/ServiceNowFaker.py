@@ -32,7 +32,7 @@ def getMajorIncidentTemplate():
         majorIncidentTemplate = json.load(fp)
     return majorIncidentTemplate['records'][0]
 
-def generateMajorIncident(index, createdDate="", short_description="", category="", assigned_to="", assignment_group=""):
+def generateMajorIncident(index, indexLength, createdDate="", short_description="", category="", assigned_to="", assignment_group=""):
     record = getMajorIncidentTemplate()
     # record[''] = ''
     record['impact'] = '1'
@@ -44,7 +44,7 @@ def generateMajorIncident(index, createdDate="", short_description="", category=
     record['short_description'] = short_description
     record['category'] = category
     record['assigned_to'] = assigned_to
-    record['resolved_by'] = resolved_by
+    record['resolved_by'] = ''
     record['assignment_group'] = assignment_group
     record['business_impact'] = ''
     record['description'] = ''
@@ -55,7 +55,7 @@ def generateMajorIncident(index, createdDate="", short_description="", category=
     record['contact_type'] = ''
     record['severity'] = ''
     record['sys_id'] = ''
-    record['number'] = f'INC004{(numbersLength-(index)+1):04d}'
+    record['number'] = f'INC004{(indexLength-(index)+1):04d}'
     record['business_duration']=''
     record['calendar_duration']=''
     record['resolved_at']=''
